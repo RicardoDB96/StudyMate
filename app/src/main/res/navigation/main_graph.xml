@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.domberdev.studymate.ui.home.HomeFragment"
+        android:label="@string/task_list"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_add"
+            app:destination="@id/addFragment"
+            app:enterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.domberdev.studymate.ui.add.AddFragment"
+        android:label="@string/add_task"
+        tools:layout="@layout/fragment_add" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.domberdev.studymate.ui.detail.DetailFragment"
+        android:label="@string/task_info"
+        tools:layout="@layout/fragment_detail" />
+</navigation>

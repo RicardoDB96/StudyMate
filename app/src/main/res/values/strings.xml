@@ -1,0 +1,21 @@
+<resources>
+    <!-- General -->
+    <string name="app_name">StudyMate</string>
+    <string name="task_list">Lista de tareas</string>
+    <string name="add_task">Añadir Tarea</string>
+    <string name="task_info">Información de la tarea</string>
+
+    <!-- Home -->
+    <string name="individual">Individual</string>
+    <string name="team">Equipo</string>
+    <!-- Añadir Tarea -->
+    <!-- Infomación Tarea -->
+    <!-- Otros -->
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+
+    <!-- Delete Dialog -->
+    <string name="delete_task">Borrar tarea</string>
+    <string name="delete_message">¿Estás seguro de eliminar esta tarea? Perderás todos los datos relacionados con esta tarea.</string>
+    <string name="deleting">Borrando…</string>
+</resources>
