@@ -1,8 +1,11 @@
 package com.domberdev.studymate.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.NavController
@@ -79,5 +82,15 @@ class MainActivity : AppCompatActivity() {
                 R.id.addFragment -> window.navigationBarColor = getColor(R.color.grey)
             }
         }
+    }
+
+    //Función que oculta el teclado, al mismo tiempo que quita el foco a los TextFields.
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+            currentFocus?.clearFocus()
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }

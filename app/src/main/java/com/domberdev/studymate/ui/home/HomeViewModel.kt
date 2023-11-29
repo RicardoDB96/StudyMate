@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.domberdev.studymate.data.StudyMateRepository
-import com.domberdev.studymate.data.database.entity.toDatabase
 import com.domberdev.studymate.domain.model.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -23,12 +22,6 @@ class HomeViewModel @Inject constructor(
             isLoading.postValue(true)
             taskList.postValue(repository.getAllTaskFromDatabase())
             isLoading.postValue(false)
-        }
-    }
-
-    fun saveData(task: Task) {
-        viewModelScope.launch {
-            repository.insertTask(task.toDatabase())
         }
     }
 }

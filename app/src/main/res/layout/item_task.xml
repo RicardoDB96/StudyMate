@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,7 +50,7 @@
             app:layout_constraintEnd_toStartOf="@+id/cvTypeLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvSubject"
-            tools:text="15/Nov" />
+            tools:text="Domingo 31 de Diciembre, 2023" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvTypeLayout"

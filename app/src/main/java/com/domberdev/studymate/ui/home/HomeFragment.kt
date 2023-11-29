@@ -1,10 +1,10 @@
 package com.domberdev.studymate.ui.home
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -40,11 +40,15 @@ class HomeFragment : Fragment() {
 
         taskViewModel.taskList.observe(viewLifecycleOwner) { taskList ->
             if (taskList.isEmpty()) {
-                for (task in testList) {
-                    taskViewModel.saveData(task)
-                }
+                binding.tvNoTask.isVisible = true
+            } else {
+                binding.tvNoTask.isVisible = false
+                initRecyclerView(taskList)
             }
-            initRecyclerView(taskList)
+        }
+
+        taskViewModel.isLoading.observe(viewLifecycleOwner) {
+            binding.progress.isVisible = it
         }
 
         // FAB acción
@@ -62,28 +66,8 @@ class HomeFragment : Fragment() {
         findNavController().navigate(R.id.action_home_to_detail, bundle)
     }
 
-    // No se debe de tomar el valor de esta, se borrara al final
-    private val testList =
-        listOf(
-            Task(
-                0,
-                "Evidencia 1",
-                "Modelacion",
-                Color.MAGENTA,
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. Orci porta non pulvinar neque laoreet suspendisse interdum consectetur. Accumsan in nisl nisi scelerisque eu ultrices. Vel fringilla est ullamcorper eget nulla. Sodales ut eu sem integer vitae justo. In dictum non consectetur a erat nam at lectus urna. At risus viverra adipiscing at in tellus integer feugiat scelerisque. Diam phasellus vestibulum lorem sed. Senectus et netus et malesuada. Habitasse platea dictumst quisque sagittis purus. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae.",
-                "29/Nov",
-                0,
-                false
-            ),
-            Task(
-                1,
-                "Evidencia 2",
-                "Android",
-                Color.GREEN,
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. Orci porta non pulvinar neque laoreet suspendisse interdum consectetur. Accumsan in nisl nisi scelerisque eu ultrices. Vel fringilla est ullamcorper eget nulla. Sodales ut eu sem integer vitae justo. In dictum non consectetur a erat nam at lectus urna. At risus viverra adipiscing at in tellus integer feugiat scelerisque. Diam phasellus vestibulum lorem sed. Senectus et netus et malesuada. Habitasse platea dictumst quisque sagittis purus. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae.",
-                "30/Nov",
-                1,
-                false
-            ),
-        )
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

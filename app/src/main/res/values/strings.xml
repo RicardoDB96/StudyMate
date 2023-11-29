@@ -6,9 +6,21 @@
     <string name="task_info">Información de la tarea</string>
 
     <!-- Home -->
+    <string name="no_task">No hay tareas próximas</string>
+
+    <!-- Añadir Tarea -->
     <string name="individual">Individual</string>
     <string name="team">Equipo</string>
-    <!-- Añadir Tarea -->
+    <string name="title">Título</string>
+    <string name="title_message">Ingrese el titulo de la tarea</string>
+    <string name="subject">Materia</string>
+    <string name="subject_message">Ingrese el nombre de la materia</string>
+    <string name="deadline">Fecha de entrega</string>
+    <string name="date_message">DD/MM/YYYY</string>
+    <string name="type">Tipo</string>
+    <string name="description">Descripción</string>
+    <string name="desc_message">Ingrese la descripción de la tarea</string>
+
     <!-- Infomación Tarea -->
     <!-- Otros -->
     <string name="yes">Si</string>

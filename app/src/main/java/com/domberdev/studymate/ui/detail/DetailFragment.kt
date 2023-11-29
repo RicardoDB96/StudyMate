@@ -76,4 +76,9 @@ class DetailFragment : Fragment() {
                 d.cancel()
             }.show()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

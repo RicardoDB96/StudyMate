@@ -3,13 +3,37 @@
     <style name="Base.Theme.StudyMate" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/background</item>
+        <item name="colorAccent">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:textColor">@color/black</item>
         <item name="materialAlertDialogTheme">@style/Dialog.StudyMate</item>
+        <item name="textInputStyle">@style/TextInput.StudyMate</item>
     </style>
 
     <style name="Theme.StudyMate" parent="Base.Theme.StudyMate" />
-    
+
+    <style name="ProgressBar.StudyMate" parent="Widget.AppCompat.ProgressBar">
+        <item name="colorAccent">@color/grey</item>
+    </style>
+
+    <style name="TextInput.StudyMate" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
+        <item name="android:textColorHint">@color/grey_100</item>
+        <item name="boxBackgroundColor">@color/grey_bg</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout" parent="">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorError">@color/red</item>
+        <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.OutlinedBox</item>
+    </style>
+
     <style name="Dialog.StudyMate" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="colorSecondary">@color/background</item>
         <item name="colorSurface">@color/background</item>
