@@ -8,8 +8,13 @@ import javax.inject.Inject
 
 class StudyMateRepository @Inject constructor(private val studyMateDao: StudyMateDao) {
 
-    suspend fun getAllTaskFromDatabase(): List<Task> {
-        val response = studyMateDao.getAllTask()
+    suspend fun getIncompleteTaskFromDatabase(): List<Task> {
+        val response = studyMateDao.getIncompleteTask()
+        return response.map { it.toDomain() }
+    }
+
+    suspend fun getCompleteTaskFromDatabase(): List<Task> {
+        val response = studyMateDao.getCompleteTask()
         return response.map { it.toDomain() }
     }
 

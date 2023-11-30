@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -13,6 +14,8 @@ import com.domberdev.studymate.databinding.FragmentDetailBinding
 import com.domberdev.studymate.domain.model.Task
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 /**
  * Fragmento del Detail de la Tarea de la aplicación
@@ -49,16 +52,41 @@ class DetailFragment : Fragment() {
         binding.cardContainer.setCardBackgroundColor(task.color)
         activity?.window?.navigationBarColor = task.color
 
-        // Ejemplo de como se deberan llamar a las funciones
-        //deleteDialog(task)
-        //updateCompleteStatus(!task.estatus, task.id)
+        // Poner la información en los TextView
+        binding.tvTitleInfo.text = task.titulo
+        binding.tvSubjectInfo.text = task.materia
+        binding.tvDeadlineInfo.text = parseDate(task.deadline)
+        if (task.descripcion != "") {
+            binding.tvDescriptionTitle.isVisible = true
+            binding.tvDescriptionInfo.isVisible = true
+            binding.tvDescriptionInfo.text = task.descripcion
+        }
 
-        // Desde aqui puedes comezar con tu codigo
+        when (task.tipo) {
+            0 -> {
+                binding.tvTypeInfo.text = binding.tvTypeInfo.context.getString(R.string.individual)
+                binding.cvTypeLayoutInfo.setCardBackgroundColor(binding.tvTypeInfo.context.getColor(R.color.orange))
+            }
+
+            1 -> {
+                binding.tvTypeInfo.text = binding.tvTypeInfo.context.getString(R.string.team)
+                binding.cvTypeLayoutInfo.setCardBackgroundColor(binding.tvTypeInfo.context.getColor(R.color.green))
+            }
+        }
+
+        binding.btnDeleteTask.setOnClickListener {
+            deleteDialog(task)
+        }
+
+        binding.btnTaskComplete.setOnClickListener {
+            updateCompleteStatus(!task.estatus, task.id)
+        }
     }
 
     // Metodo para actualizar el estatus de una tarea (completada/no completada)
     private fun updateCompleteStatus(status: Boolean, id: Long) {
         detailViewModel.completeTask(status, id)
+        findNavController().popBackStack()
     }
 
     // Metodo para borrar una tarea, tiene que accionarse al hacer click en el boton de borrar tarea
@@ -75,6 +103,23 @@ class DetailFragment : Fragment() {
             .setNegativeButton(R.string.no) { d, _ ->
                 d.cancel()
             }.show()
+    }
+
+    private fun parseDate(date: String): String {
+        val d = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).parse(date)
+        val day =
+            SimpleDateFormat("EEEE d 'de' MMMM 'de' yyyy", Locale.forLanguageTag("es-MX")).format(d!!)
+        return day.capitalizeWords()
+    }
+
+    private fun String.capitalizeWords(): String = split(" ").joinToString(" ") {
+        if (it.equals("de", ignoreCase = true)) {
+            it // Si la palabra es "de", no la capitalizamos
+        } else {
+            it.replaceFirstChar { char ->
+                if (char.isLowerCase()) char.titlecase(Locale.getDefault()) else char.toString()
+            }
+        }
     }
 
     override fun onDestroy() {

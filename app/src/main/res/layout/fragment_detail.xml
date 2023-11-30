@@ -22,13 +22,168 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="48dp">
 
-            <!-- Aquí se empieza a colocar el diseño -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/buttonsLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <!-- Fin del diseño -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Aquí se empieza a colocar el diseño -->
+
+                    <!-- Fin del diseño -->
+
+                    <TextView
+                        android:id="@+id/tvTitleInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:singleLine="true"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Evidencia Final" />
+
+                    <TextView
+                        android:id="@+id/tvSubjectInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:singleLine="true"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTitleInfo"
+                        tools:text="Desarrollo de Aplicaciones en plataforma Android" />
+
+                    <TextView
+                        android:id="@+id/tvDeadlineTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/deadline"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvSubjectInfo" />
+
+                    <TextView
+                        android:id="@+id/tvDeadlineInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:singleLine="true"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDeadlineTitle"
+                        tools:text="Jueves 30 de Noviembre de 2023" />
+
+                    <TextView
+                        android:id="@+id/tvTypeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/type"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDeadlineInfo" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvTypeLayoutInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:cardBackgroundColor="#F4BF4F"
+                        app:cardCornerRadius="32dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTypeTitle">
+
+                        <TextView
+                            android:id="@+id/tvTypeInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:textSize="16sp"
+                            tools:text="@string/individual" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/tvDescriptionTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/description"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cvTypeLayoutInfo" />
+
+                    <TextView
+                        android:id="@+id/tvDescriptionInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionTitle"
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio morbi quis commodo odio. Sagittis vitae et leo duis. Et magnis dis parturient montes nascetur ridiculus. Augue neque gravida in fermentum et sollicitudin ac orci. Habitant morbi tristique senectus et netus et malesuada fames ac. Eget mauris pharetra et ultrices neque ornare aenean. A scelerisque purus semper eget duis at. Lacus vestibulum sed arcu non odio euismod lacinia at. Adipiscing elit duis tristique sollicitudin nibh sit amet.  Dictumst quisque sagittis purus sit amet. Bibendum est ultricies integer quis. Tortor at risus viverra adipiscing at in tellus integer feugiat. Eget arcu dictum varius duis at. Viverra aliquet eget sit amet tellus cras adipiscing enim. Augue ut lectus arcu bibendum at varius vel. Sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget. Orci eu lobortis elementum nibh tellus molestie nunc non blandit. Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Ultricies tristique nulla aliquet enim tortor at auctor. In nibh mauris cursus mattis molestie. Non tellus orci ac auctor augue mauris. Aliquet nec ullamcorper sit amet risus." />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:id="@+id/buttonsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <Button
+                    android:id="@+id/btnDeleteTask"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/red"
+                    android:text="@string/delete_task" />
+
+                <Button
+                    android:id="@+id/btnTaskComplete"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/blue"
+                    android:text="@string/complete" />
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

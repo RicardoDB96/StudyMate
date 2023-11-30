@@ -38,12 +38,25 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         taskViewModel.onCreate()
 
-        taskViewModel.taskList.observe(viewLifecycleOwner) { taskList ->
+        taskViewModel.incompleteTaskList.observe(viewLifecycleOwner) { taskList ->
             if (taskList.isEmpty()) {
                 binding.tvNoTask.isVisible = true
+                binding.rvIncompleteTask.isVisible = false
             } else {
                 binding.tvNoTask.isVisible = false
-                initRecyclerView(taskList)
+                binding.rvIncompleteTask.isVisible = true
+                initIncompleteRecyclerView(taskList)
+            }
+        }
+
+        taskViewModel.completeTaskList.observe(viewLifecycleOwner) { taskList ->
+            if (taskList.isEmpty()) {
+                binding.tvComplete.isVisible = false
+                binding.rvCompleteTask.isVisible = false
+            } else {
+                binding.tvComplete.isVisible = true
+                binding.rvCompleteTask.isVisible = true
+                initCompleteRecyclerView(taskList)
             }
         }
 
@@ -55,9 +68,14 @@ class HomeFragment : Fragment() {
         binding.fabAddTask.setOnClickListener { findNavController().navigate(R.id.action_home_to_add) }
     }
 
-    private fun initRecyclerView(taskList: List<Task>) {
-        binding.rvTask.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvTask.adapter = TaskAdapter(taskList) { id -> navigateToTaskInfo(id) }
+    private fun initIncompleteRecyclerView(taskList: List<Task>) {
+        binding.rvIncompleteTask.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvIncompleteTask.adapter = TaskAdapter(taskList) { id -> navigateToTaskInfo(id) }
+    }
+
+    private fun initCompleteRecyclerView(taskList: List<Task>) {
+        binding.rvCompleteTask.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvCompleteTask.adapter = TaskAdapter(taskList) { id -> navigateToTaskInfo(id) }
     }
 
     private fun navigateToTaskInfo(id: Long) {

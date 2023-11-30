@@ -9,5 +9,7 @@
     <color name="grey">#FF50504E</color>
     <color name="grey_bg">#FF656565</color>
     <color name="grey_100">#FFABABAB</color>
+    <color name="orange">#FFF4BF4F</color>
+    <color name="green">#FFC9F44F</color>
     <color name="transparent">#00000000</color>
 </resources>

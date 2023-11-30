@@ -21,12 +21,12 @@ class TaskViewHolder(view: View) : ViewHolder(view) {
         when (task.tipo) {
             0 -> {
                 binding.tvType.text = binding.tvType.context.getString(R.string.individual)
-                binding.cvTypeLayout.setCardBackgroundColor((0xFFF4BF4F).toInt())
+                binding.cvTypeLayout.setCardBackgroundColor(binding.tvType.context.getColor(R.color.orange))
             }
 
             1 -> {
                 binding.tvType.text = binding.tvType.context.getString(R.string.team)
-                binding.cvTypeLayout.setCardBackgroundColor((0xFFC9F44F).toInt())
+                binding.cvTypeLayout.setCardBackgroundColor(binding.tvType.context.getColor(R.color.green))
             }
         }
 

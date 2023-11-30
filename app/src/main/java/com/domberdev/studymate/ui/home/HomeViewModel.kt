@@ -14,13 +14,15 @@ class HomeViewModel @Inject constructor(
     private val repository: StudyMateRepository
 ) : ViewModel() {
 
-    val taskList = MutableLiveData<List<Task>>()
+    val incompleteTaskList = MutableLiveData<List<Task>>()
+    val completeTaskList = MutableLiveData<List<Task>>()
     val isLoading = MutableLiveData<Boolean>()
 
     fun onCreate() {
         viewModelScope.launch {
             isLoading.postValue(true)
-            taskList.postValue(repository.getAllTaskFromDatabase())
+            incompleteTaskList.postValue(repository.getIncompleteTaskFromDatabase())
+            completeTaskList.postValue(repository.getCompleteTaskFromDatabase())
             isLoading.postValue(false)
         }
     }

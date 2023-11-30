@@ -10,8 +10,11 @@ import com.domberdev.studymate.data.database.entity.TaskEntity
 @Dao
 interface StudyMateDao {
 
-    @Query("SELECT * FROM task_table ORDER BY deadline ASC")
-    suspend fun getAllTask(): List<TaskEntity>
+    @Query("SELECT * FROM task_table WHERE status = 0 ORDER BY deadline ASC")
+    suspend fun getIncompleteTask(): List<TaskEntity>
+
+    @Query("SELECT * FROM task_table WHERE status = 1 ORDER BY deadline ASC")
+    suspend fun getCompleteTask(): List<TaskEntity>
 
     @Query("SELECT * FROM task_table WHERE id = :id")
     suspend fun getTaskByID(id: Long): TaskEntity
