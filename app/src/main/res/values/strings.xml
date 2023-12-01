@@ -24,6 +24,7 @@
 
     <!-- Infomación Tarea -->
     <string name="complete">Terminada</string>
+    <string name="incomplete">Sin terminar</string>
     <!-- Otros -->
     <string name="yes">Si</string>
     <string name="no">No</string>

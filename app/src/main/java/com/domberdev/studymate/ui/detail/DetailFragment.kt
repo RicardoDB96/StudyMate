@@ -74,6 +74,10 @@ class DetailFragment : Fragment() {
             }
         }
 
+        if (task.estatus) {
+            binding.btnTaskComplete.text = getString(R.string.incomplete)
+        }
+
         binding.btnDeleteTask.setOnClickListener {
             deleteDialog(task)
         }
